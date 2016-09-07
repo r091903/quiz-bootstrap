@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Create Quiz</title>
+
+          <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+          <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+          <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.css"/>
+
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="indexod.html"> WIPRO </a>
+      </div>
+
+      <ul class="nav navbar-nav">
+                  <li class="create-event">
+                      <a href="#collapse1"><i class="fa fa-fw fa-calendar fa-lg"></i>Create Quiz</a></li>
+      </ul>
+
+                  <!-- Top Menu Items -->
+
+           <ul class="nav navbar-right top-nav">
+
+              <li class="dropdown">
+              <a href="#"><i class="fa fa-fw fa-user fa-lg"></i> Faculty </a>
+              </li>
+
+             <li class="dropdown">
+              <a href="#"><i class="fa fa-fw fa-power-off"></i></a>
+             </li>
+
+           </ul>
+
+
+      </nav>
+      <div id="page-wrapper" class="container-fluid" >
+        <form action="uploadQuiz" method="post">
+
+          <input type="radio" name="question_type" id="MCQ_type" value="MCQ">MCQ
+          <input type="radio" name="question_type" id="Descriptive_type" value="DA">Descriptive
+
+          <div id="MCQ">
+
+              <label>Enter Quiz Name</label>
+              <input class="form-control" name="quiz_name" id="quiz_name" placeholder="Enter Quiz Name" >
+              <label>Enter session name</label>
+              <input class="form-control" name="session_name" id="session_name" placeholder="Enter session_name" >
+              <label>Enter Question</label>
+              <input class="form-control" name="question" id="question" placeholder="Enter Question" >
+              <div class="col-lg-6">
+                <label>option1</label>
+                <input class="form-control" name="option1" id="option1" placeholder="Enter Option" >
+                <label>option2</label>
+                <input class="form-control" name="option2" id="option2" placeholder="Enter Option" >
+              </div>
+              <div class="col-lg-6">
+                <label>option3</label>
+                <input class="form-control" name="option3" id="option3" placeholder="Enter Option" >
+                <label>option4</label>
+                <input class="form-control" name="option4" id="option4" placeholder="Enter Option" >
+                <label>correct_option</label>
+                <select name="correct_option">
+                  <option value="option1">option1</option>
+                  <option value="option2">option2</option>
+                  <option value="option3">option3</option>
+                  <option value="option4">option4</option>
+                </select>
+              </div>
+              <button class="btn btn-success" type="submit">Save</button>
+              <button class="btn btn-success" type="button">Add question</button>
+        </div>
+        <div id="Descriptive">
+          <label>Enter Descriptive Question</label>
+          <input class="form-control" name="question" id="question" placeholder="Enter Question" >
+          <button class="btn btn-success" type="submit">Save</button>
+
+          <button class="btn btn-success" id="add_question" type="button">Add question</button>
+        </div>
+        </form>
+      </div>
+
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/bootstrap-datepicker.min.js"></script>
+<script>
+  $(function() {
+
+    $("#Descriptive").hide();
+    $("#MCQ").hide();
+
+    $("#MCQ_type").click(function () {
+      $("#Descriptive").hide();
+      $("#MCQ").show();
+    });
+
+    $("#Descriptive_type").click(function () {
+      $("#Descriptive").show();
+      $("#MCQ").hide();
+    });
+
+    $("#add_question").click(function () {
+
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Create Quiz</title>
+
+          <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+          <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+          <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.css"/>
+
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="indexod.html"> WIPRO </a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                        <li class="create-event">
+                            <a href="#collapse1"><i class="fa fa-fw fa-calendar fa-lg"></i>Create Quiz</a></li>
+            </ul>
+
+                        <!-- Top Menu Items -->
+
+                 <ul class="nav navbar-right top-nav">
+
+                    <li class="dropdown">
+                    <a href="#"><i class="fa fa-fw fa-user fa-lg"></i> Faculty </a>
+                    </li>
+
+                   <li class="dropdown">
+                    <a href="#"><i class="fa fa-fw fa-power-off"></i></a>
+                   </li>
+
+                 </ul>
+
+
+            </nav>
+
+
+
+        <div id="page-wrapper" class="container-fluid" >
+
+
+                <!-- Page Heading -->
+
+                <!-- list starts here -->
+                <div class="panel panel-primary">
+                      <div class="panel-heading">
+                             <h4 class="panel-title">
+                                <a href="#collapse1" style="text-decoration:none;" data-toggle="collapse" >Create Quiz
+                                  <b class="caret pull-right"></b>
+                                </a>
+                             </h4>
+                      </div>
+                      <div id="collapse1" class="panel-body" >
+                          </br>
+                          <!-- row starts here -->
+                          <div class="row">
+                    <div class="col-lg-6">
+                      <form action="uploadQuiz" method="post">
+                          <div class="form-group">
+                              <label>Enter Quiz Name</label>
+                              <input class="form-control" name="quiz_name" id="quiz_name" placeholder="Enter Quiz Name" required="">
+                          </div>
+                          <div class="form-group">
+                              <label>Enter number of MCQ Questions</label>
+                              <input class="form-control" name="mcqQuestions" id="mcqQuestions" placeholder="Enter number of MCQ Questions" value=0 required="">
+                          </div>
+                          <div class="form-group">
+                              <label>Enter number of Descriptive Questions</label>
+                              <input class="form-control" name="desQuestions" id="desQuestions" placeholder="Enter number of descriptive Questions" value=0 required="">
+                          </div>
+                          <div class="form-group">
+                            <button id="generate" class="btn btn-success" >Generate Questions</button>
+                          </div>
+                          <div id="hiddenDiv">
+                            <!-- <label class="col-lg-12">Question No : 1</label> -->
+                            <div id="mcqDiv" >
+                              <div class="form-group col-lg-12">
+                                <input class="form-control" name="question" placeholder="Enter Question">
+                              </div>
+                              <div class="form-group col-lg-4">
+                                <label>Option 1: </label>
+                                <input class="form-control" name="option1" placeholder="Enter Option" >
+                                <label>Option 2: </label>
+                                <input class="form-control" name="option2" placeholder="Enter Option">
+                              </div>
+                              <div class="form-group col-lg-4">
+                                <label>Option 3: </label>
+                                <input class="form-control" name="option3" placeholder="Enter Option">
+                                <label>Option 4: </label>
+                                <input class="form-control" name="option4" placeholder="Enter Option">
+                              </div>
+                              <div class="form-group col-lg-4">
+                               <label for="sel1">Select Answer:</label>
+                               <select class="form-control" id="sel1" name="correct_option">
+                                 <option value="option1">Option 1</option>
+                                 <option value="option2">Option 2</option>
+                                 <option value="option3">Option 3</option>
+                                 <option value="option4">Option 4</option>
+                               </select>
+                              </div>
+                            </div>
+                            <!-- <label class="col-lg-12">Question No : 2</label> -->
+                            <div class="form-group col-lg-12" id="desDiv">
+                              <input class="form-control" placeholder="Enter descriptive Question">
+                            </div>
+                          </div>
+
+                            <div id="repeatDiv">
+
+                            </div>
+                            <div class="form-group col-lg-12">
+                              <button class="btn btn-success col-lg-4" id="confirm_button" data-toggle="modal" data-target="#confirmModal">Confirm Question Paper</button>
+                            </div>
+
+                        </form>
+                    </div>
+                      </div>
+                      </br>
+                      </div>
+                </div>
+                <!--generate questions -->
+
+      </div>             <!-- End of container -->
+<!-- Modals -->
+<div id="confirmModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> Confirm Question Paper</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you confirm with the Question Paper?</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- End of modals -->
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/bootstrap-datepicker.min.js"></script>
+
+
+
+<script>
+$(function() {
+  $("#emptyQuiz").show();
+  $("#hiddenDiv").hide();
+  $("#repeatDiv").hide();
+  $("#confirm_button").hide();
+  $("#generate").click(function(e){
+
+    e.preventDefault();
+  	$("#emptyQuiz").hide();
+
+    if($("#quiz_name").val()=="" || $("#quiz_name").val()==null){
+      alert("Enter quiz Name");
+    }
+      else if($("#mcqQuestions").val()=="" || $("#mcqQuestions").val()==null){
+        alert("Enter Number of MCQs");
+      }
+      else if($("#desQuestions").val()=="" || $("#desQuestions").val()==null){
+        alert("Enter Number of Descriptive Questions");
+      }
+      else{
+        // $("#hiddenDiv").show();
+        $("#repeatDiv").show();
+        $("#confirm_button").show();
+      }
+     var mcqQues= $("#mcqQuestions").val();
+     var desQues=$("#desQuestions").val();
+
+     if(mcqQues>50){
+      mcqQues=50;
+      alert("Maximum mcq limit exceeded");
+     }
+     if(desQues>50){
+      desQues=50;
+      alert("Maximum des limit exceeded");
+     }
+
+     if ($("#repeatDiv").children().size()==0) {
+
+       for (var i = 0; i < mcqQues; i++) {
+           $("#repeatDiv").append('<label class="col-lg-12">Question No :'+(i+1)+'</label>');
+           $("#repeatDiv").append($("#mcqDiv").clone(true));
+           $('#repeatDiv #mcqDiv').attr('id','mcqDiv'+i);
+       };
+
+       for (var j = 0; j < desQues; j++) {
+         $("#repeatDiv").append('<label class="col-lg-12">Question No :'+(i+j+1)+'</label>');
+         $("#repeatDiv").append($("#desDiv").clone(true));
+         $('#repeatDiv #desDiv').attr('id','desDiv'+j);
+       };
+     }
+     else {
+       $("#repeatDiv").empty();
+       for (var i = 0; i < mcqQues; i++) {
+           $("#repeatDiv").append('<label class="col-lg-12">Question No :'+(i+1)+'</label>');
+           $("#repeatDiv").append($("#mcqDiv").clone(true));
+           $('#repeatDiv #mcqDiv').attr('id','mcqDiv'+i);
+       };
+
+       for (var j = 0; j < desQues; j++) {
+         $("#repeatDiv").append('<label class="col-lg-12">Question No :'+(i+j+1)+'</label>');
+         $("#repeatDiv").append($("#desDiv").clone(true));
+         $('#repeatDiv #desDiv').attr('id','desDiv'+j);
+       };
+     }
+
+
+  });
+});
+</script>
+</body>
+</html>
