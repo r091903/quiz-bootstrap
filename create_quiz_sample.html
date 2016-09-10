@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
 
@@ -21,11 +21,14 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/bootstrap-datepicker3.css"/>
+    <script src="ang_app.js"></script>
 
+    <!-- angular script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
 </head>
 
-<body>
+<body ng-controller="quiz_controller">
 
     <div id="wrapper">
 
@@ -95,39 +98,7 @@
                           <div class="form-group">
                             <button id="generate" class="btn btn-success" >Generate Questions</button>
                           </div>
-                          <div id="hiddenDiv">
-                            <!-- <label class="col-lg-12">Question No : 1</label> -->
-                            <div id="mcqDiv" >
-                              <div class="form-group col-lg-12">
-                                <input class="form-control" name="question" placeholder="Enter Question">
-                              </div>
-                              <div class="form-group col-lg-4">
-                                <label>Option 1: </label>
-                                <input class="form-control" name="option1" placeholder="Enter Option" >
-                                <label>Option 2: </label>
-                                <input class="form-control" name="option2" placeholder="Enter Option">
-                              </div>
-                              <div class="form-group col-lg-4">
-                                <label>Option 3: </label>
-                                <input class="form-control" name="option3" placeholder="Enter Option">
-                                <label>Option 4: </label>
-                                <input class="form-control" name="option4" placeholder="Enter Option">
-                              </div>
-                              <div class="form-group col-lg-4">
-                               <label for="sel1">Select Answer:</label>
-                               <select class="form-control" id="sel1" name="correct_option">
-                                 <option value="option1">Option 1</option>
-                                 <option value="option2">Option 2</option>
-                                 <option value="option3">Option 3</option>
-                                 <option value="option4">Option 4</option>
-                               </select>
-                              </div>
-                            </div>
-                            <!-- <label class="col-lg-12">Question No : 2</label> -->
-                            <div class="form-group col-lg-12" id="desDiv">
-                              <input class="form-control" placeholder="Enter descriptive Question">
-                            </div>
-                          </div>
+
 
                             <div id="repeatDiv">
 
@@ -169,7 +140,41 @@
   </div>
 </div>
 <!-- End of modals -->
-
+<!--start of hidden divs-->
+<div id="hiddenDiv">
+  <!-- <label class="col-lg-12">Question No : 1</label> -->
+  <div id="mcqDiv" >
+    <div class="form-group col-lg-12">
+      <input class="form-control" name="question" placeholder="Enter Question">
+    </div>
+    <div class="form-group col-lg-4">
+      <label>Option 1: </label>
+      <input class="form-control" name="option1" placeholder="Enter Option" >
+      <label>Option 2: </label>
+      <input class="form-control" name="option2" placeholder="Enter Option">
+    </div>
+    <div class="form-group col-lg-4">
+      <label>Option 3: </label>
+      <input class="form-control" name="option3" placeholder="Enter Option">
+      <label>Option 4: </label>
+      <input class="form-control" name="option4" placeholder="Enter Option">
+    </div>
+    <div class="form-group col-lg-4">
+     <label for="sel1">Select Answer:</label>
+     <select class="form-control" id="sel1" name="correct_option">
+       <option value="option1">Option 1</option>
+       <option value="option2">Option 2</option>
+       <option value="option3">Option 3</option>
+       <option value="option4">Option 4</option>
+     </select>
+    </div>
+  </div>
+  <!-- <label class="col-lg-12">Question No : 2</label> -->
+  <div class="form-group col-lg-12" id="desDiv">
+    <input class="form-control" placeholder="Enter descriptive Question" name="question">
+  </div>
+</div>
+<!--end of hidden divs-->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
