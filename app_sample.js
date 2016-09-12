@@ -42,6 +42,8 @@ router.get("/faculty",function(req,res){
 
 router.post("/uploadQuiz",urlencodedParser,function(req,res) {
   // res.send(req.body);
+  // var last_document=MCQ_Quiz.find({}).limit(1).sort({created:-1}).exec();
+  // console.log(last_document);
   var mcqQuestions=req.body.mcqQuestions;
   var desQuestions=req.body.desQuestions;
   // var all_quiz_array=[];
@@ -94,7 +96,7 @@ router.post("/uploadQuiz",urlencodedParser,function(req,res) {
 
     });
   }
-  res.send("successfully uploaded all docs");
+  // res.send("successfully uploaded all docs");
 
   // MCQ_Quiz.insertMany(all_quiz_array,onInsert);
   // function onInsert(err, docs) {
@@ -140,7 +142,9 @@ router.post("/creatUser",urlencodedParser,function(req,res) {
 });
 
 
-
+router.post("/getResult",urlencodedParser,function (req,res) {
+  res.json(req.body);
+});
 
 router.get("/users",function(req,res){
   //this finds all users
@@ -148,6 +152,15 @@ router.get("/users",function(req,res){
     res.send(users);
   });
 });
+
+router.get("/getQuestions",function(req,res){
+  //this finds all users
+  MCQ_Quiz.find(function (err,users) {
+    res.json(users);
+  });
+});
+
+
 router.get("/quizPaper",function (req,res) {
   Quiz.find(function (err,data) {
     res.render('/sample',{paper:data});
