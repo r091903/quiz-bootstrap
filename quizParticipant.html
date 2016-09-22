@@ -21,7 +21,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/bootstrap-datepicker3.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="angular.js"></script>
 
 
 </head>
@@ -82,8 +82,10 @@
                         <div class="row">
                           <div class="col-lg-6">
                           <form role="form" action="/getResult" method="post">
-                            <div class="form-group" ng-repeat="ques in list track by $index">
-                              <!-- <div ng-if="ques.quiz_name=='Java '"> -->
+                            <select ng-model="selectedId" ng-options="x.id for x in list" ng-change="selectedQuiz(selectedId)">
+                            </select>
+                            <div class="form-group" ng-repeat="ques in list track by $index " ng-if="ques.id==selectedId">
+                              <label>ID : {{ques.id}}</label><br>
                                 <label> Q{{$index+1}} ) {{ques.question}}</label><br>
                                 <div class="form-group" ng-if=ques.MCQ>
                                   <label><input type="radio" name="opt" value="{{ques.option1}}">{{ques.option1}}</label><br>
@@ -95,8 +97,8 @@
                                   <label for="comment">Type your answer:</label>
                                   <textarea class="form-control" rows="5" name="opt"></textarea>
                                 </div>
-                              <!-- </div> -->
                             </div>
+
                             <button class="btn btn-primary">Submit</button>
                           </form>
 
@@ -123,9 +125,15 @@
   var myApp=angular.module("myApp",[]);
   myApp.controller("quiz_controller",function ($scope,$http) {
     console.log("angular stared");
+    $scope.selectedId="";
     $http.get("/getQuestions").success(function(data) {
       $scope.list=data;
-    })
+    });
+    $scope.selectedQuiz=function (item) {
+      $scope.selectedId=item.id;
+      console.log("selectedId---");
+      console.log(item.id);
+    };
   });
 </script>
 

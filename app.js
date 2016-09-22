@@ -26,7 +26,6 @@ var quizSchema=new Schema({
   Descriptive:Boolean
 });
 var Quiz=mongoose.model('quiz',quizSchema);
-
 app.use(express.static('public'));
 var router = express.Router();
 var path = __dirname+"/";

@@ -101,28 +101,23 @@
                           <div class="form-group">
                             <button id="generate" class="btn btn-success" >Generate Questions</button>
                           </div>
-
-
                             <div id="repeatDiv">
 
                             </div>
                             <div class="form-group col-lg-12">
-                              <button class="btn btn-success col-lg-4" id="confirm_button" data-toggle="modal" data-target="#confirmModal">Confirm Question Paper</button>
+                              <button class="btn btn-success col-lg-4" id="confirm_button" data-toggle="modal" data-target="confirmModal">Confirm Question Paper</button>
                             </div>
-
                         </form>
                     </div>
-                      </div>
-                      </br>
-                      </div>
-                </div>
-                <!--generate questions -->
-
+                  </div>
+                </br>
+              </div>
+            </div>
+          <!--generate questions -->
       </div>             <!-- End of container -->
 <!-- Modals -->
 <div id="confirmModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -131,15 +126,12 @@
       </div>
       <div class="modal-body">
         <p>Are you confirm with the Question Paper?</p>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-
       </div>
     </div>
-
   </div>
 </div>
 <!-- End of modals -->
@@ -261,11 +253,13 @@ $(function() {
 </script>
 <script>
   var myApp=angular.module("myApp",[]);
-  myApp.controller("quiz_controller",function ($scope,$http) {
+  myApp.controller("quiz_controller",function ($filterProvider,$scope,$http) {
     console.log("angular stared");
     $http.get("/getQuestions").success(function(data) {
       $scope.list=data;
-    })
+
+    });
+
   });
 </script>
 </body>
